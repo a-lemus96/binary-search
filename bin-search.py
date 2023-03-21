@@ -1,5 +1,4 @@
 # standard library modules
-import argparse
 from typing import List
 
 def binary_search(A: List, key: int) -> int:
