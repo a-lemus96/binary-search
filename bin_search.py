@@ -18,12 +18,14 @@ def binary_search(A: List, key: int) -> int:
     p = 0
     q = len(A)
 
-    while len(A[p: q])> 0:
+    while len(A[p: q]) > 0:
         median = (p + q - 1) // 2
         if A[median] == key:
             return median
         else:
             if key < A[median]:
-                q = median
+                q = median # search in left subarray
             else:
-                p = median + 1
+                p = median + 1 # search in right subarray
+
+    return None
