@@ -62,7 +62,7 @@ $$
 where $F_k$ is the $k$-th term of the Fibonacci sequence.
 
 #### Proof
-Let $n$ be the number of non-empty nodes for a balanced tree with height $h$. We first show that the statement holds for $h=0$. Since the height of the tree is zero, there are no non-empty nodes for such tree and $n_h=0$. We see that $n_h=0 = F_{0+2} - 1$ so the statement holds for $h=0.
+Let $n$ be the number of non-empty nodes for a balanced tree with height $h$. We first show that the statement holds for $h=0$. Since the height of the tree is zero, there are no non-empty nodes for such tree and $n_h=0$. We see that $n_h=0 = F_{0+2} - 1$ so the statement holds for $h=0$.
 
 Now, for proving the inductive hypothesis assume that the statement holds for a balanced tree with height $h$. That is, $n_h \geq F_{h+2} - 1$. For a balanced tree with height $h + 1$ we know that the left and right sub-tree heights cannot differ by more than 1. Assuming one of the subtrees has height $h$, the other must have a height of either $h$ or $h - 1$. We consider both cases below and show that the inequality holds for $h + 1$. From now on, we assume $n_l$ and $n_r$ to be the number of non-empty nodes in the left and right sub-trees, in that order. 
 
