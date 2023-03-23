@@ -38,6 +38,9 @@ The script `count_occurences.py` contains a function called `count_occurrences`,
 
 ### Non-recursive implementation of binary search
 ---
+The recursive binary search algorithm may be convenient for code compactness and its elegancy. When we run such a recursive algorithm to search for an occurrence inside an array $A$ of size $n$ with $n$ large we may have memory issues due to the nature of how recursive calls are handled. Everytime we make a neste function call, the algorithm has to stop executing the function you are currently at, save the state of the processor inside the call stack, run the current function, restore the previous processor state so that you can continue executing your first function. In a recursive function, we must consecutively pile up this kind of information for every recursive call until we reach a base case. When $n$ is large, the cost of running this kind of code may become prohibitive.
+
+We can sacrifice some code compactness in order to avoid this memory overhead and write the recursive binary search algorithm using a `while` loop. The script `bin_search.py` contains an implementation of this idea.
 
 ### Analyzing balanced BSTs
 ---
