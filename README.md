@@ -27,7 +27,14 @@ The search method for finding the rightmost occurrence I propose is briefly desc
 2. If the middle value is lower than the key value, search in left subarray. If not, search in the right one.
 3. Repeat until you reach a subarray with size 0.
 
-The algorithm is the same for finding the leftmost occurence with the conditions in step 2 reversed. The process of iteratively reducing the search domain in halves leads us, informally speaking, to a running time of $O(\log n)$.
+The algorithm is the same for finding the leftmost occurence with the conditions in step 2 reversed. The process of iteratively reducing the search domain in halves leads us, informally speaking, to a running time of $O(\log n)$ and by the previous argument, we say that this conting algorithm runs in $O(\log n)$. Of course, there are some details regarding index tracking and termination conditions I intentionally swept under the rug for the sake of clarity. You can check `count_occurences.py` script where I implemented this solution.
+
+### Running the counting algorithm
+
+The script `count_occurences.py` contains a function called `count_occurrences`, which computes both index values by calling `find_right` and `find_left` functions and substracting their results. The script creates a random sorted array of size `n` with elements ranging from 0 to `m`. It then runs the counting function for each of the `m + 1` elements and displays their number of occurrences. You can run the script by typing `python count_occurrences.py -n=N -m=M` being `N` and `M` parameters of your choice. Here's a screenshot for how the output should look like:
+
+![image](https://user-images.githubusercontent.com/95151624/227092570-73231767-c313-4584-9283-4ffe58f57e74.png)
+
 
 ### Non-recursive implementation of binary search
 ---
