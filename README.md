@@ -44,4 +44,54 @@ We can sacrifice some code compactness in order to avoid this memory overhead an
 
 ### Analyzing balanced BSTs
 ---
+We know that the height of a tree is the length of the largest path going from the root to any of its leaves. For example, the tree below has height 4. The numbers in red denote the height of the binary tree rooted at each node.
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/95151624/227097915-9d12a557-560f-41e5-a787-3a08e38c0544.png" width=25% height=25% />
+</p>
+
+We say that a binary search tree is balanced if and only if, for each of its nodes, the absolute value of the difference between the height of the left sub-tree and the height of the right sub-tree is at most 1. We consider here that the leaves are empty nodes. We can see that the tree is not balanced tree since there exists a node that does not meet the previous definition: the root node has a left sub-tree with height 3 and a right sub-tree with height 1, substracting these numbers yields $|3 - 1|=2>1$.
+
+#### Proposition
+Now we demonstrate by induction over $h$, that if a balanced tree has height $h$, a lower bound on the number of non-empty nodes it contains is
+
+$$
+  F_{h+2} - 1
+$$
+
+where $F_k$ is the $k$-th term of the Fibonacci sequence.
+
+#### Proof
+Let $n$ be the number of non-empty nodes for a balanced tree with height $h$. We first show that the statement holds for $h=0$. Since the height of the tree is zero, there are no non-empty nodes for such tree and $n_h=0$. We see that $n_h=0 = F_{0+2} - 1$ so the statement holds for $h=0.
+
+Now, for proving the inductive hypothesis assume that the statement holds for a balanced tree with height $h$. That is, $n_h \geq F_{h+2} - 1$. For a balanced tree with height $h + 1$ we know that the left and right sub-tree heights cannot differ by more than 1. Assuming one of the subtrees has height $h$, the other must have a height of either $h$ or $h - 1$. We consider both cases below and show that the inequality holds for $h + 1$. From now on, we assume $n_l$ and $n_r$ to be the number of non-empty nodes in the left and right sub-trees, in that order. 
+
+* Case 1: Both sub-trees have heights equal to $h$. In this case the total number of nodes $n$ is
+
+$$
+  \begin{align*}
+    n = n_l + n_r + 1&\geq 2F_{h+2} - 2 + 1\\
+    &= F_{h+2} + F_{h+2} -1\\
+    &\geq F_{h+2} + F_{h+1} - 1\\
+    &\geq F_{h+2} + F_{h+1} -1\\
+    &=F_{h+3} - 1 \\
+    &=F_{(h+1) + 2} - 1
+  \end{align*}
+$$
+
+* Case 2: One sub-tree has height $h$ and the other has height $h - 1$. In this case the total number of nodes $n$ is
+
+$$
+  \begin{align*}
+    n = n_l + n_r + 1&\geq F_{h+2} + F_{h+1} - 2 + 1\\
+    &=F_{h+2} + F_{h+1} -1\\
+    &=F_{h+3} - 1 \\
+    &=F_{(h+1) + 2} - 1
+  \end{align*}
+$$
+
+This completes the proof.
+
+
+
 
