@@ -16,7 +16,6 @@ args = parser.parse_args()
 
 
 def find_right(A: List, key: int, p, q) -> int:
-    #print(f"[{p},{q})")
     while (q - p) > 0:
         median = ((q - 1) + p) // 2
         # test middle element
@@ -26,15 +25,10 @@ def find_right(A: List, key: int, p, q) -> int:
         else:
             # search right
             p = median + 1
-        #print(f"[{p},{q})")
 
-    if A[p - 1] == key:
-        return q
-    else:
-        return -1
+    return q
 
 def find_left(A: List, key: int, p, q) -> int:
-    #print(f"[{p},{q}]")
     while (q - p) > 0:
         median = ((q - 1) + p) // 2
         # test middle element
@@ -44,12 +38,8 @@ def find_left(A: List, key: int, p, q) -> int:
         else:
             # search left
             q = median
-        #print(f"[{p},{q})")
-
-    if A[p] == key:
-        return p
-    else:
-        return -1
+    
+    return p
 
 def count_occurrences(A: List, key: int) -> int:
     """Given a sorted array A of elements that may be repeated, compute the
@@ -64,10 +54,8 @@ def count_occurrences(A: List, key: int) -> int:
         count: number of occurences of key in array A"""
     # explore right side of the subarray
     kmax = find_right(A, key, p=0, q=len(A))
-    #print(f"kmax={kmax}")
     # explore left side of the subarray
     kmin = find_left(A, key, p=0, q=len(A))
-    #print(f"kmin={kmin}")
     count = kmax - kmin
 
     return count
