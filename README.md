@@ -52,7 +52,7 @@ We know that the height of a tree is the length of the largest path going from t
 
 We say that a binary search tree is balanced if and only if, for each of its nodes, the absolute value of the difference between the height of the left sub-tree and the height of the right sub-tree is at most 1. We consider here that the leaves are empty nodes. We can see that the tree is not balanced tree since there exists a node that does not meet the previous definition: the root node has a left sub-tree with height 3 and a right sub-tree with height 1, substracting these numbers yields $|3 - 1|=2>1$.
 
-#### Proposition 1
+#### Height of a balanced tree and the Fibonacci sequence
 Now we demonstrate by induction over $h$, that if a balanced tree has height $h$, a lower bound on the number of non-empty nodes it contains is
 
 $$
@@ -61,7 +61,7 @@ $$
 
 where $F_k$ is the $k$-th term of the Fibonacci sequence.
 
-#### Proof
+**Proof**
 Let $n$ be the number of non-empty nodes for a balanced tree with height $h$. We first show that the statement holds for $h=0$. Since the height of the tree is zero, there are no non-empty nodes for such tree and $n_h=0$. We see that $n_h=0 = F_{0+2} - 1$ so the statement holds for $h=0$.
 
 Now, for proving the inductive hypothesis assume that the statement holds for a balanced tree with height $h$. That is, $n_h \geq F_{h+2} - 1$. For a balanced tree with height $h + 1$ we know that the left and right sub-tree heights cannot differ by more than 1. Assuming one of the subtrees has height $h$, the other must have a height of either $h$ or $h - 1$. We consider both cases below and show that the inequality holds for $h + 1$. From now on, we assume $n_l$ and $n_r$ to be the number of non-empty nodes in the left and right sub-trees, in that order. 
@@ -94,10 +94,10 @@ This completes the proof.
 
 There is also an interesting property involving the height of balanced BSTs with $n$ nodes and the golden ratio $\varphi = \left(\frac{1}{2}(1 + \sqrt{5})\right)$.
 
-#### Proposition 2
+#### Growing trend of the height of a balanced BST
 The height of a balanced BST with $n$ nodes, when $n$ is large, has a growing trend in $\log_{\varphi}n$ where $\varphi$ is the golden ratio.
 
-#### Proof
+**Proof**
 We know that for a balanced BST with height $h$ the number of nodes that contains satisfies $n \geq F_{h+2} -1$. We also know that the closed expression for the $h$-th term of the Fibonacci sequence is given by
 
 $$
@@ -130,3 +130,8 @@ $$
 $$
 
 This leads to $h + \log_{\varphi}n \geq 2h + 2$ when $n$ is large enough. Hence, we have $\log_{\varphi}n \geq h$. This completes the proof.
+
+#### About the complexity of insertion and search operations in balanced BSTs
+We have already seen that when the number of nodes $n$ in a balanced BST is large enough, its height is bounded by $\log_{\varphi}n$, that is $\log_{\varphi}n \geq h$.
+
+When for an element in a BST, the worst-case scenario is when the element is on the last level of the tree or is not present in the tree. In this case, we would have to perform $h$ comparisons, since $\log_{\varphi}n \geq h$ for large enough $n$, we conclude that the running time of the search operation is $O(\log_{\varphi}n)$. The same analysis applies for the insertion operation, since we are inserting an element at the bottom of the tree, the running time for the insertion operation is $O(\log_{\varphi}n)$ as well.
