@@ -3,9 +3,6 @@ import argparse
 import random
 from typing import List
 
-# custom modules
-import bin_search as bs
-
 # create argument parser obj and parse arguments
 parser = argparse.ArgumentParser(description="Count key ocurrences in an array")
 parser.add_argument('-n', default=20, type=int,
