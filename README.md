@@ -110,13 +110,23 @@ $$
   \begin{align*}
     n &\geq \frac{\varphi^{h+2} + (-1)^{h-2}(\varphi)^{-h-2}}{\sqrt{5}} - 1\\
     \sqrt{5}n &\geq \varphi^{h+2} + (-1)^{h-2}(\varphi)^{-h-2} - \sqrt{5}\\
-    \varphi^{h+2}\sqrt{5}(n + 1) &\geq \varphi^{2(h+2)} + (-1)^{-h-2}
+    \varphi^{h+2}\sqrt{5}(n + 1) &\geq \varphi^{2(h+2)} + (-1)^{h+2}
   \end{align*}
 $$
 
 Taking logarithms on both sides of the expression
 
 $$
-  
+  h+2+log_{\varphi} \sqrt{5} + \log_{\varphi}(n + 1) \geq \log_{\varphi}\left(\varphi^{2(h+2)} + (-1)^{h+2}\right)
 $$
 
+When $n$ approaches infinity so does $h$. So, asymptotically we have the following approximations
+
+$$
+  \begin{align*}
+    h+2+log_{\varphi} \sqrt{5} + \log_{\varphi}(n + 1) \approx h + \log_{\varphi}n\\
+    \log_{\varphi}\left(\varphi^{2(h+2)} + (-1)^{h+2}\right) \approx 2h + 2
+  \end{align*}
+$$
+
+This leads to $h + \log_{\varphi}n \geq 2h + 2$ when $n$ is large enough. Hence, we have $\log_{\varphi}n \geq h$. This completes the proof.
