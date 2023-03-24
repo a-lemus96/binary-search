@@ -52,7 +52,7 @@ We know that the height of a tree is the length of the largest path going from t
 
 We say that a binary search tree is balanced if and only if, for each of its nodes, the absolute value of the difference between the height of the left sub-tree and the height of the right sub-tree is at most 1. We consider here that the leaves are empty nodes. We can see that the tree is not balanced tree since there exists a node that does not meet the previous definition: the root node has a left sub-tree with height 3 and a right sub-tree with height 1, substracting these numbers yields $|3 - 1|=2>1$.
 
-#### Proposition
+#### Proposition 1
 Now we demonstrate by induction over $h$, that if a balanced tree has height $h$, a lower bound on the number of non-empty nodes it contains is
 
 $$
@@ -92,6 +92,31 @@ $$
 
 This completes the proof.
 
+There is also an interesting property involving the height of balanced BSTs with $n$ nodes and the golden ratio $\varphi = \left(\frac{1}{2}(1 + \sqrt{5})\right)$.
 
+#### Proposition 2
+The height of a balanced BST with $n$ nodes, when $n$ is large, has a growing trend in $\log_{\varphi}n$ where $\varphi$ is the golden ratio.
 
+#### Proof
+We know that for a balanced BST with height $h$ the number of nodes that contains satisfies $n \geq F_{h+2} -1$. We also know that the closed expression for the $h$-th term of the Fibonacci sequence is given by
+
+$$
+  F_h = \frac{\varphi^h - (-\varphi)^{-h}}{\sqrt{5}}
+$$
+
+Using these two facts we write
+
+$$
+  \begin{align*}
+    n &\geq \frac{\varphi^{h+2} + (-1)^{h-2}(\varphi)^{-h-2}}{\sqrt{5}} - 1\\
+    \sqrt{5}n &\geq \varphi^{h+2} + (-1)^{h-2}(\varphi)^{-h-2} - \sqrt{5}\\
+    \varphi^{h+2}\sqrt{5}(n + 1) &\geq \varphi^{2(h+2)} + (-1)^{-h-2}
+  \end{align*}
+$$
+
+Taking logarithms on both sides of the expression
+
+$$
+  
+$$
 
